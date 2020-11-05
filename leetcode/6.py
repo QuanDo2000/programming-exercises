@@ -1,5 +1,5 @@
 class Solution:
-    def zigzag_string(self, s, numRows):
+    def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
             return s
         ans = [[] for i in range(numRows)]
@@ -15,7 +15,3 @@ class Solution:
             counter += inc
         ans = [''.join(x) for x in ans]
         return ''.join(ans)
-
-
-sol = Solution()
-print(sol.zigzag_string('paypalishiring', 2))

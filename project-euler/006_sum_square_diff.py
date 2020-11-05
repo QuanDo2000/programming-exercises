@@ -1,33 +1,30 @@
-# ID: 006
-# Name: Sum square difference
-# Description: The sum of the squares of the first ten natural numbers is,
-#              1^2 + 2^2 + ... + 10^2 = 385
-#              The square of the sum of the first ten natural numbers is,
-#              (1 + 2 + ... + 10)^2 = 55^2 = 3025
-#              Hence the difference between the sum of the squares of the
-#              first ten natural numbers and the square of the sum is
-#              3025 − 385 = 2640.
-#              Find the difference between the sum of the squares of the
-#              first one hundred natural numbers and the square of the sum.
-# Link: https://projecteuler.net/problem=6
-# Help:
-#   https://math.stackexchange.com/questions/1166027/prove-that-1222-cdotsn2-fracnn12n16-for-n-in-mathbbn
-#   https://codereview.stackexchange.com/questions/58460/sum-of-squares-square-of-sum-difference?rq=1
+"""
+ID: 006
+Name: Sum square difference
+Description:
+    The sum of the squares of the first ten natural numbers is,
+    1^2 + 2^2 + ... + 10^2 = 385
+    The square of the sum of the first ten natural numbers is,
+    (1 + 2 + ... + 10)^2 = 55^2 = 3025
+    Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640. Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+Link: https://projecteuler.net/problem=6
+Help:
+- https://math.stackexchange.com/questions/1166027/prove-that-1222-cdotsn2-fracnn12n16-for-n-in-mathbbn
+- https://codereview.stackexchange.com/questions/58460/sum-of-squares-square-of-sum-difference?rq=1
+"""
 
 
-import sys  # Import exit()
+import sys
 
 
-# Function sum_of_square()
-#   Find the sum of all the square from 0 to lim
 def sum_of_square(lim):
+    """Return the sum of all the square from 0 to lim."""
     total = (lim * (lim + 1) * (2 * lim + 1)) / 6
     return total
 
 
-# Function square_of_sum()
-#   Find the square of the sum from 0 to lim
 def square_of_sum(lim):
+    """Return the square of the sum from 0 to lim."""
     total = (lim * (lim + 1)) / 2
     return (total ** 2)
 

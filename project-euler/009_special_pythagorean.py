@@ -1,39 +1,40 @@
-# ID: 009
-# Name: Special Pythagorean triplet
-# Description: A Pythagorean triplet is a set of three natural numbers,
-#              a < b < c, for which, a^2 + b^2 = c^2
-#              For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
-#              There exists exactly one Pythagorean triplet for which
-#              a + b + c = 1000.
-#              Find the product a*b*c.
-# Link: https://projecteuler.net/problem=9
-# Help:
-#   https://codereview.stackexchange.com/questions/37398/finding-the-pythagorean-triplet-that-sums-to-1000
-#   https://codereview.stackexchange.com/questions/163599/project-euler-problem-9-special-pythagorean-triplet
-#   009_overview.pdf from https://projecteuler.net/problem=9
+"""
+ID: 009
+Name: Special Pythagorean triplet
+Description:
+    A Pythagorean triplet is a set of three natural numbers,
+    a < b < c, for which, a^2 + b^2 = c^2
+    For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
+    There exists exactly one Pythagorean triplet for which
+    a + b + c = 1000.
+    Find the product a*b*c.
+Link: https://projecteuler.net/problem=9
+Help:
+- https://codereview.stackexchange.com/questions/37398/finding-the-pythagorean-triplet-that-sums-to-1000
+- https://codereview.stackexchange.com/questions/163599/project-euler-problem-9-special-pythagorean-triplet
+- 009_overview.pdf from https://projecteuler.net/problem=9
+"""
 
 
-import sys   # Import exit()
-import math  # Import sqrt(), ceil()
+import sys
+import math
 
 
-# Function special_pythagorean()
-#   Find special pythagorean triplet that satisfies a^2 + b^2 = c^2
-#   and a + b + c = number
 def special_pythagorean(s):
-    limit = math.ceil(math.sqrt(s/2))
+    """Return special pythagorean triplet that satisfies a^2 + b^2 = c^2 and a + b + c = number."""
+    limit = math.ceil(math.sqrt(s / 2))
     for m in range(2, limit):
-        if ((s/2) % m == 0):
-            sm = (s/2) / m
+        if ((s / 2) % m == 0):
+            sm = (s / 2) / m
             while (sm % 2 == 0):
                 sm /= 2
             if (m % 2 == 1):
                 k = m + 2
             else:
                 k = m + 1
-            while (k < 2*m and k <= sm):
+            while (k < 2 * m and k <= sm):
                 if (sm % k == 0 and math.gcd(k, m) == 1):
-                    d = (s/2) / (k * m)
+                    d = (s / 2) / (k * m)
                     n = k - m
                     a = d * (m**2 - n**2)
                     b = 2 * d * m * n

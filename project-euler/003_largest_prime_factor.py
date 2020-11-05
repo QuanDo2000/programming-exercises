@@ -1,21 +1,24 @@
-# ID: 003
-# Name: Largest prime factor
-# Description: The prime factors of 13195 are 5, 7, 13 and 29.
-#              What is the largest prime factor of the number 600851475143 ?
-# Link: https://projecteuler.net/problem=3
-# Help:
-#   https://codereview.stackexchange.com/questions/104381/prime-factorization-for-integers-with-up-to-9-digit-long-prime-factors/104386#104386
-#   https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm#Python_code_sample
+"""
+ID: 003
+Name: Largest prime factor
+Description:
+    The prime factors of 13195 are 5, 7, 13 and 29.
+    What is the largest prime factor of the number 600851475143 ?
+Link: https://projecteuler.net/problem=3
+Help:
+- https://codereview.stackexchange.com/questions/104381/prime-factorization-for-integers-with-up-to-9-digit-long-prime-factors/104386#104386
+- https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm#Python_code_sample
+"""
 
 
-import sys   # Import exit()
-import math  # Import gcd()
+import sys
+import math
 
 
-# Function get_factor():
-#   Get the next prime factor using Pollard's rho
-#   Has a chance to fail!!!
 def get_factor(number):
+    """Return the next prime factor using Pollard's rho.
+    Can fail!!!
+    """
     x_fixed = 2
     x = 3
     cycle_size = 2
@@ -31,9 +34,8 @@ def get_factor(number):
     return factor
 
 
-# Function prime_factors():
-#   Find prime factors of a number by using Pollard's rho
 def prime_factors(number):
+    """Return prime factors of a number by using Pollard's rho."""
     factors = []
     while number > 1:
         next_factor = get_factor(number)
