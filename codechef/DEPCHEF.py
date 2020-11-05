@@ -1,6 +1,7 @@
-# CodeChef Problem: DEPCHEF
-# https://www.codechef.com/problems/DEPCHEF
-
+"""
+CodeChef Problem: DEPCHEF
+https://www.codechef.com/problems/DEPCHEF
+"""
 # Loop test cases
 for _ in range(int(input())):
     # Get test case
@@ -18,10 +19,10 @@ for _ in range(int(input())):
     for i in range(len(d)):
         # Check last index
         if i == (len(d) - 1):
-            if d[i] > (a[i-1] + a[0]):
+            if d[i] > (a[i - 1] + a[0]):
                 r.append(d[i])
         else:
-            if d[i] > (a[i-1] + a[i+1]):
+            if d[i] > (a[i - 1] + a[i + 1]):
                 r.append(d[i])
     # Get the max value in list of acceptable values or print -1 if list empty
     if len(r) == 0:

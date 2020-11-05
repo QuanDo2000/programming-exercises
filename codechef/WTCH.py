@@ -1,6 +1,7 @@
-# CodeChef Problem: WTCH
-# https://www.codechef.com/problems/WTCH
-
+"""
+CodeChef Problem: WTCH
+https://www.codechef.com/problems/WTCH
+"""
 import math  # ceil()
 
 # Loop test cases

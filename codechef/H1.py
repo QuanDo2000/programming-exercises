@@ -1,6 +1,7 @@
-# CodeChef Problem: H1
-# https://www.codechef.com/problems/H1
-
+"""
+CodeChef Problem: H1
+https://www.codechef.com/problems/H1
+"""
 # List of primes possible
 prime = [3, 5, 7, 11, 13, 17]
 # List of swaps that can be made

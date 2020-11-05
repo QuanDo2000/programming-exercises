@@ -1,6 +1,7 @@
-# CodeChef Problem: HMAPPY2
-# https://www.codechef.com/problems/HMAPPY2
-
+"""
+CodeChef Problem: HMAPPY2
+https://www.codechef.com/problems/HMAPPY2
+"""
 
 import math  # gcd()
 

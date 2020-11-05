@@ -1,5 +1,7 @@
-# CodeChef Problem: ADAKNG
-# https://www.codechef.com/problems/ADAKNG
+"""
+CodeChef Problem: ADAKNG
+https://www.codechef.com/problems/ADAKNG
+"""
 
 # Loop test cases
 for i in range(int(input())):
@@ -16,8 +18,8 @@ for i in range(int(input())):
     # add/remove k moves from that. Take the higher minus the lower
     # and plus 1 to get the width. Since the board is finite, if
     # the king's move is invalid then set it to border value.
-    height = abs(min(r+k, 8) - max(r-k, 1)) + 1
+    height = abs(min(r + k, 8) - max(r - k, 1)) + 1
     # The height is similar to width, replace row (r) with column (c)
-    width = abs(min(c+k, 8) - max(c-k, 1)) + 1
+    width = abs(min(c + k, 8) - max(c - k, 1)) + 1
     rec = width * height
     print(rec)

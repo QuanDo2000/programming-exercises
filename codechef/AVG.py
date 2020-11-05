@@ -1,5 +1,7 @@
-# CodeChef Problem: AVG
-# https://www.codechef.com/problems/AVG
+"""
+CodeChef Problem: AVG
+https://www.codechef.com/problems/AVG
+"""
 
 # Loop test cases
 for _ in range(int(input())):

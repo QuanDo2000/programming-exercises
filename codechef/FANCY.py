@@ -1,6 +1,7 @@
-# CodeChef Problem: FANCY
-# https://www.codechef.com/problems/FANCY
-
+"""
+CodeChef Problem: FANCY
+https://www.codechef.com/problems/FANCY
+"""
 # Loop test cases
 for _ in range(int(input())):
     # Input a list containing every word.

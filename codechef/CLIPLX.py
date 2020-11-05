@@ -1,6 +1,7 @@
-# CodeChef Problem: CLIPLX
-# https://www.codechef.com/problems/CLIPLX
-
+"""
+CodeChef Problem: CLIPLX
+https://www.codechef.com/problems/CLIPLX
+"""
 # Loop test cases
 for _ in range(int(input())):
     # Input

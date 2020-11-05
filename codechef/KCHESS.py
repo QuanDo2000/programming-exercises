@@ -1,15 +1,18 @@
-# CodeChef Problem: KCHESS
-# https://www.codechef.com/problems/KCHESS
-
+"""
+CodeChef Problem: KCHESS
+https://www.codechef.com/problems/KCHESS
+"""
 
 # Check if position is being checked
+
+
 def check(knight_pos, pos):
     x = pos[0]
     y = pos[1]
-    result = (x+1, y+2) in knight_pos or (x+1, y-2) in knight_pos \
-        or (x-1, y+2) in knight_pos or (x-1, y-2) in knight_pos \
-        or (x+2, y+1) in knight_pos or (x+2, y-1) in knight_pos \
-        or (x-2, y+1) in knight_pos or (x-2, y-1) in knight_pos
+    result = (x + 1, y + 2) in knight_pos or (x + 1, y - 2) in knight_pos \
+        or (x - 1, y + 2) in knight_pos or (x - 1, y - 2) in knight_pos \
+        or (x + 2, y + 1) in knight_pos or (x + 2, y - 1) in knight_pos \
+        or (x - 2, y + 1) in knight_pos or (x - 2, y - 1) in knight_pos
     return result
 
 
@@ -24,8 +27,8 @@ for _ in range(int(input())):
     a = k[0]
     b = k[1]
     # All possible move for king
-    kingP = [k, (a+1, b), (a+1, b+1), (a+1, b-1), (a, b+1),
-             (a, b-1), (a-1, b+1), (a-1, b), (a-1, b-1)]
+    kingP = [k, (a + 1, b), (a + 1, b + 1), (a + 1, b - 1), (a, b + 1),
+             (a, b - 1), (a - 1, b + 1), (a - 1, b), (a - 1, b - 1)]
     # Check all position, if any is not checked then return 'NO'
     for pos in kingP:
         if not check(n, pos):
