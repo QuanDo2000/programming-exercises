@@ -1,5 +1,5 @@
 """
-ID: 016
+ID: 16
 Name: Power Digit Sum
 Description: 
     2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.

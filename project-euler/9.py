@@ -1,5 +1,5 @@
 """
-ID: 009
+ID: 9
 Name: Special Pythagorean triplet
 Description:
     A Pythagorean triplet is a set of three natural numbers,

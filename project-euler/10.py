@@ -1,5 +1,5 @@
 """
-ID: 010
+ID: 10
 Name: Summation of primes
 Description:
     The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.

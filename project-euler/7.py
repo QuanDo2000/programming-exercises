@@ -1,5 +1,5 @@
 """
-ID: 007
+ID: 7
 Name: 10001st prime
 Description:
     By listing the first six prime numbers:
