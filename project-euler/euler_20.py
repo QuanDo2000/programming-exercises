@@ -18,3 +18,13 @@ def factorial(n):
     for i in range(1, n + 1):
         ret *= i
     return ret
+
+
+def sum_of_digits(num):
+    """Return the sum of the digits of the input."""
+    return sum(list(map(int, list(str(num)))))
+
+
+n = int(input('Enter number: '))
+ans = sum_of_digits(factorial(n))
+print('The factorial digit sum is {}'.format(ans))

@@ -80,12 +80,14 @@ def count_letter(num):
     return ret
 
 
-def count_letter_range(lim):
+def count_letter_range(lim, verbose=0):
     ret = 0
     for num in range(1, lim + 1):
         diff = count_letter(num)
+        num_str = num2let(num)
         ret += diff
-        print(num, ret, diff, num2let(num))
+        if verbose != 0:
+            print(num, ret, diff, len(num_str), num_str)
     return ret
 
 
