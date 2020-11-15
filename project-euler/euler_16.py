@@ -8,7 +8,7 @@ Link: https://projecteuler.net/problem=16
 """
 
 
-import sys
+import time
 
 
 def power_digit_sum(base, exp):
@@ -16,12 +16,16 @@ def power_digit_sum(base, exp):
     return sum([int(i) for i in str(pow(base, exp))])
 
 
-# Check number input
-try:
+if __name__ == "__main__":
     base = int(input("Enter base: "))
     exp = int(input("Enter exponent: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
-print("The digit sum is: {}".format(power_digit_sum(base, exp)))
+
+    start = time.time_ns()
+
+    print("The digit sum is: {}".format(power_digit_sum(base, exp)))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

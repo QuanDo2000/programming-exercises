@@ -12,6 +12,9 @@ Link: https://projecteuler.net/problem=21
 """
 
 
+import time
+
+
 def find_divisors(num):
     """Return a list of all proper divisors for input number."""
     ret_list = []
@@ -21,15 +24,31 @@ def find_divisors(num):
     return ret_list
 
 
-sum_map = {}
-for idx in range(1, 10000):
-    sum_map[idx] = sum(find_divisors(idx))
+def find_amicables(limit):
+    amicable_nums = set()
+    for idx in range(1, limit):
+        if sum_map[idx] in sum_map and sum_map[sum_map[idx]] == idx and idx != sum_map[idx]:
+            amicable_nums.add(idx)
+            amicable_nums.add(sum_map[idx])
+    return amicable_nums
 
-amicable_nums = set()
-for idx in range(1, 10000):
-    if sum_map[idx] in sum_map and sum_map[sum_map[idx]] == idx and idx != sum_map[idx]:
-        amicable_nums.add(idx)
-        amicable_nums.add(sum_map[idx])
 
-ans = sum(amicable_nums)
-print('The sum of amicable numbers is {}'.format(ans))
+if __name__ == "__main__":
+    limit = int(input('Enter limit: '))
+
+    start = time.time_ns()
+
+    sum_map = {}
+    for idx in range(1, limit):
+        sum_map[idx] = sum(find_divisors(idx))
+
+    amicable_nums = find_amicables(limit)
+
+    ans = sum(amicable_nums)
+    print('The sum of amicable numbers is {}'.format(ans))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

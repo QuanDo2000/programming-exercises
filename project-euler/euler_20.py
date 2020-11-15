@@ -12,6 +12,9 @@ Link: https://projecteuler.net/problem=20
 """
 
 
+import time
+
+
 def factorial(n):
     """Return the equivalent of n! (factorial of number n)."""
     ret = 1
@@ -25,6 +28,16 @@ def sum_of_digits(num):
     return sum(list(map(int, list(str(num)))))
 
 
-n = int(input('Enter number: '))
-ans = sum_of_digits(factorial(n))
-print('The factorial digit sum is {}'.format(ans))
+if __name__ == "__main__":
+    n = int(input('Enter number: '))
+
+    start = time.time_ns()
+
+    ans = sum_of_digits(factorial(n))
+    print('The factorial digit sum of {}! is {}'.format(n, ans))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

@@ -23,7 +23,7 @@ Help:
 """
 
 
-import sys
+import time
 # from functools import reduce
 
 
@@ -76,18 +76,22 @@ def find_divisors(num):
     return count
 
 
-# Check number input
-try:
+if __name__ == "__main__":
     num = int(input("Enter amount of divisors: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-primes = nth_prime_list(1000)
-i = 1
-triangularVal = triangular_num(i)
-while find_divisors(triangularVal) < num:
-    i += 1
+    start = time.time_ns()
+
+    primes = nth_prime_list(1000)
+    i = 1
     triangularVal = triangular_num(i)
-print("The first triangular number with {} divisors is {:,}".format(num, triangularVal))
+    while find_divisors(triangularVal) < num:
+        i += 1
+        triangularVal = triangular_num(i)
+    print("The first triangular number with {} divisors is {}".format(
+        num, triangularVal))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

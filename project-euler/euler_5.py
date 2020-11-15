@@ -9,8 +9,8 @@ Help:
 """
 
 
+import time
 import math
-import sys
 
 
 # Function smallest_multiple()
@@ -24,14 +24,16 @@ def smallest_multiple(number):
     return num
 
 
-# Check input error
-try:
+if __name__ == "__main__":
     num_in = int(input("Enter number: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print result
-print("\nFinding smallest multiple of 1 to {}".format(num_in))
-print("The smallest multiple is: {:,}".format(smallest_multiple(num_in)))
+    start = time.time_ns()
+
+    print("\nFinding smallest multiple of 1 to {}".format(num_in))
+    print("The smallest multiple is: {:}".format(smallest_multiple(num_in)))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

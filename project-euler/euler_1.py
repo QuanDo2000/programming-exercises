@@ -9,7 +9,7 @@ Help:
 """
 
 
-import sys
+import time
 import math
 
 
@@ -37,26 +37,19 @@ def sum_of_all_multiples(upper_bound, num_in):
     return total
 
 
-# Check for input errors
-try:
+if __name__ == "__main__":
     upper_bound = int(input("Enter upper bound: "))
-    num_in = []
-    while True:
-        num_in.append(int(input("Enter a number: ")))
-        condition = "a"
-        while condition not in ["n", "y"]:
-            condition = input("Continue...(y/n) ")
-        if condition == "n":
-            break
-        else:
-            continue
-except ValueError:
-    # Handle invalid input
-    print("Invalid Input.\nExit...")
-    sys.exit()
+    num_in = list(map(int, input('Enter list of numbers: ').split(' ')))
 
-# Print the result
-print("\nUpper Bound: {0:,}".format(upper_bound))
-print("Calculating for multiples of: {0}".format(num_in))
-res = sum_of_all_multiples(upper_bound, num_in)
-print("The sum is: {0:,.0f}".format(res))
+    start = time.time_ns()
+
+    print("\nUpper Bound: {}".format(upper_bound))
+    print("Calculating for multiples of: {}".format(num_in))
+    res = int(sum_of_all_multiples(upper_bound, num_in))
+    print("The sum is: {}".format(res))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

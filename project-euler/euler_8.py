@@ -28,7 +28,7 @@ Link: https://projecteuler.net/problem=8
 """
 
 
-import sys
+import time
 import inspect
 import os
 
@@ -66,23 +66,22 @@ def max_product_series(series, k=13):
     return max_product
 
 
-# Input
-name = 'euler_inp_8.txt'
-try:
+if __name__ == "__main__":
+    name = 'euler_inp_8.txt'
     series = read_file(name)
     k = int(input("Enter amount of numbers: "))
-except FileNotFoundError:
-    # Handle file not found error
-    print("File Not Found.\nExit...")
-    sys.exit()
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print result
-print("\nThe series is:")
-for serie in series:
-    print(serie, end="")
-res = max_product_series(series, k)
-print("\nThe maximum product with {} numbers is: {:,}".format(k, res))
+    start = time.time_ns()
+
+    # Print result
+    print("\nThe series is:")
+    for serie in series:
+        print(serie, end="")
+    res = max_product_series(series, k)
+    print("\nThe maximum product with {} numbers is: {}".format(k, res))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

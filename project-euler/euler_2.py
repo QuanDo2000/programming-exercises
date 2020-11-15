@@ -10,7 +10,8 @@ Help:
 - https://en.wikipedia.org/wiki/Fibonacci_number#Primes_and_divisibility
 """
 
-import sys
+
+import time
 import math
 
 
@@ -36,17 +37,19 @@ def sum_even_fibonacci(upper_bound):
     return total
 
 
-# Check for input error
-try:
+if __name__ == "__main__":
     upper_bound = int(input("Enter upper bound: "))
-except ValueError:
-    # Handle invalid input
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print the result
-print("\nUpper Bound: {0:,}".format(upper_bound))
-index = index_fibonacci(upper_bound)
-print("The index is: {0} which means k = {1}".format(index, index // 3))
-res = sum_even_fibonacci(4000000)
-print("The sum is: {0:,.0f}".format(res))
+    start = time.time_ns()
+
+    print("\nUpper Bound: {}".format(upper_bound))
+    index = index_fibonacci(upper_bound)
+    print("The index is: {} which means k = {}".format(index, index // 3))
+    res = int(sum_even_fibonacci(upper_bound))
+    print("The sum is: {}".format(res))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

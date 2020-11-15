@@ -34,6 +34,9 @@ Link: https://projecteuler.net/problem=18
 """
 
 
+import time
+
+
 def read_file(input_path):
     with open(input_path, 'r') as f:
         raw_data = f.readlines()
@@ -59,8 +62,19 @@ def print_triangle(triangle):
         print(' '.join(line))
 
 
-triangle = read_file('./data/euler_inp_18.txt')
-print_triangle(triangle)
-triangle_mod = sum_triangle(triangle)
-print_triangle(triangle_mod)
-print('The sum of the maximum path is {}'.format(triangle_mod[0][0]))
+if __name__ == "__main__":
+    start = time.time_ns()
+
+    triangle = read_file('./data/euler_inp_18.txt')
+    print('\nOriginal triangle')
+    print_triangle(triangle)
+    triangle_mod = sum_triangle(triangle)
+    print('\nModified triangle')
+    print_triangle(triangle_mod)
+    print('\nThe sum of the maximum path is {}'.format(triangle_mod[0][0]))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

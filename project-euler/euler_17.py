@@ -9,6 +9,9 @@ Link: https://projecteuler.net/problem=17
 """
 
 
+import time
+
+
 def num2let(num):
     num_map = {0: '', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine',
                10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen',
@@ -91,6 +94,16 @@ def count_letter_range(lim, verbose=0):
     return ret
 
 
-lim = int(input('Enter upper limit: '))
-res = count_letter_range(lim)
-print('The sum of all letters is {}'.format(res))
+if __name__ == "__main__":
+    lim = int(input('Enter upper limit: '))
+
+    start = time.time_ns()
+
+    res = count_letter_range(lim)
+    print('The sum of all letters from 1 to {} is {}'.format(lim, res))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

@@ -14,7 +14,7 @@ Help: 014_overview.pdf from https://projecteuler.net/problem=14
 """
 
 
-import sys
+import time
 
 
 def len_collatz_gen(num):
@@ -40,16 +40,18 @@ def longest_chain(limit):
     return ans
 
 
-# Dict storing already calculated lengths
-values = {1: 1}
-# Check number input
-try:
+if __name__ == "__main__":
+    # Dict storing already calculated lengths
+    values = {1: 1}
     limit = int(input("Enter limit: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
-# Output
-print("Calculating...")
-res = longest_chain(limit)
-print("The starting number with the longest chain is: {}".format(res))
+
+    start = time.time_ns()
+
+    res = longest_chain(limit)
+    print("The starting number with the longest chain is: {}".format(res))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

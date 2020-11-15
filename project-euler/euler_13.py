@@ -12,7 +12,7 @@ Link: https://projecteuler.net/problem=13
 """
 
 
-import sys
+import time
 import os
 import inspect
 
@@ -28,14 +28,17 @@ def read_file(filename):
     return array
 
 
-# Check number input
-try:
-    num = int(input("Enter amount of numbers: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
+if __name__ == "__main__":
+    num = int(input("Enter amount of digits: "))
 
-value = sum(read_file("euler_inp_13.txt"))
-value = str(value)
-print("The first {} digits of the sum is {}".format(num, value[:num]))
+    start = time.time_ns()
+
+    value = sum(read_file("euler_inp_13.txt"))
+    value = str(value)
+    print("The first {} digits of the sum is {}".format(num, value[:num]))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

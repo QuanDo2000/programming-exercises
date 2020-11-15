@@ -19,6 +19,8 @@ Description:
 Link: https://projecteuler.net/problem=19
 """
 
+
+import time
 import datetime
 
 
@@ -47,7 +49,18 @@ def count_first_sundays(start_year, end_year):
     return count
 
 
-start_year = int(input('Input start year: '))
-end_year = int(input('Input end year: '))
-ans = count_first_sundays(start_year, end_year)
-print('There are {} Sundays that occurs at the start of the month'.format(ans))
+if __name__ == "__main__":
+    start_year = int(input('Input start year: '))
+    end_year = int(input('Input end year: '))
+
+    start = time.time_ns()
+
+    ans = count_first_sundays(start_year, end_year)
+    print('There are {} Sundays that occurs at the start of the month from {} to {}'.format(
+        ans, start_year, end_year))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

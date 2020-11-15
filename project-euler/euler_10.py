@@ -11,7 +11,7 @@ Help:
 """
 
 
-import sys
+import time
 
 
 def prime_sieve(limit):
@@ -25,22 +25,26 @@ def prime_sieve(limit):
                 a[n] = False
 
 
-# Check input error
-try:
+if __name__ == "__main__":
     limit = int(input("Enter limit: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
-total = 0
-# Create file to write primes (Delete comments to write to file)
-path = "./output/euler_out_10/euler_out_10_" + str(limit) + ".txt"
-f = open(path, "w")
-for i in prime_sieve(limit):
-    total += i
-    print(i, file=f)
-f.close()
 
-# Print result
-print("\nThe limit is: {}".format(limit))
-print("The total is: {}".format(total))
+    start = time.time_ns()
+
+    total = 0
+    # Create file to write primes (Delete comments to write to file)
+    path = "./output/euler_out_10/euler_out_10_" + str(limit) + ".txt"
+    f = open(path, "w")
+    for i in prime_sieve(limit):
+        total += i
+        print(i, file=f)
+    f.close()
+
+    # Print result
+    print("\nThe limit is: {}".format(limit))
+    print("The total is: {}".format(total))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

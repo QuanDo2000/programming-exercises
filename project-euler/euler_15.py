@@ -9,7 +9,8 @@ Help:
 - https://en.wikipedia.org/wiki/Lattice_path
 """
 
-import sys
+
+import time
 
 
 def factorial(n):
@@ -30,13 +31,16 @@ def lattic_paths(size):
     return binomial_coefficient(2 * size, size)
 
 
-# Check number input
-try:
+if __name__ == "__main__":
     size = int(input("Enter size of grid: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
-# Output
-res = lattic_paths(size)
-print("Amount of paths is: {:,.0f}".format(res))
+
+    start = time.time_ns()
+
+    res = lattic_paths(size)
+    print("Amount of paths is: {:.0f}".format(res))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

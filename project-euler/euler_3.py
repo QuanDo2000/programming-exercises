@@ -11,7 +11,7 @@ Help:
 """
 
 
-import sys
+import time
 import math
 
 
@@ -44,16 +44,19 @@ def prime_factors(number):
     return factors
 
 
-# Check for input error
-try:
-    number = int(input("Enter number: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
+if __name__ == "__main__":
 
-# Print the result
-print("\nThe number is: {0:,}".format(number))
-factors = sorted(prime_factors(number))
-print("The factors are {0}".format(factors))
-print("The largest prime factor is: {0}".format(factors[-1]))
+    number = int(input("Enter number: "))
+
+    start = time.time_ns()
+
+    print("\nThe number is: {:,}".format(number))
+    factors = sorted(prime_factors(number))
+    print("The factors are {}".format(factors))
+    print("The largest prime factor is: {:,}".format(factors[-1]))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

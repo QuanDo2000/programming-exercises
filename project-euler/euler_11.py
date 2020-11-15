@@ -29,7 +29,7 @@ Link: https://projecteuler.net/problem=11
 """
 
 
-import sys
+import time
 import os
 import inspect
 
@@ -109,20 +109,24 @@ def scan_grid(grid, n=4):
     return largest
 
 
-# Get grid input
-grid = read_file("euler_inp_11.txt")
-# Check number input
-try:
-    num = int(input("Enter amount of numbers: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
-largest = scan_grid(grid, num)
+if __name__ == "__main__":
+    # Get grid input
 
-# Print result
-print("\nThe amount of number is: {}".format(num))
-if largest != -1:
-    print("The largest product is: {:,.0f}".format(largest))
-else:
-    print("Invalid amount of numbers.")
+    num = int(input("Enter amount of numbers: "))
+
+    start = time.time_ns()
+
+    grid = read_file("euler_inp_11.txt")
+    largest = scan_grid(grid, num)
+
+    print("\nThe amount of number is: {}".format(num))
+    if largest != -1:
+        print("The largest product is: {:.0f}".format(largest))
+    else:
+        print("Invalid amount of numbers.")
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

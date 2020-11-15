@@ -14,7 +14,7 @@ Help:
 """
 
 
-import sys
+import time
 
 
 def sum_of_square(lim):
@@ -29,19 +29,21 @@ def square_of_sum(lim):
     return (total ** 2)
 
 
-# Check input error
-try:
+if __name__ == "__main__":
     limit = int(input("Enter limit: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print result
-print("\nThe limit is: {}".format(limit))
-sum_square = sum_of_square(limit)
-square_sum = square_of_sum(limit)
-result = abs(sum_square - square_sum)
-print("The sum of square is: {:,.0f}".format(sum_square))
-print("The square of sum is: {:,.0f}".format(square_sum))
-print("The difference is: {:,.0f}".format(result))
+    start = time.time_ns()
+
+    print("\nThe limit is: {}".format(limit))
+    sum_square = int(sum_of_square(limit))
+    square_sum = int(square_of_sum(limit))
+    result = int(abs(sum_square - square_sum))
+    print("The sum of square is: {}".format(sum_square))
+    print("The square of sum is: {}".format(square_sum))
+    print("The difference is: {}".format(result))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

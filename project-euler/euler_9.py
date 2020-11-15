@@ -16,7 +16,7 @@ Help:
 """
 
 
-import sys
+import time
 import math
 
 
@@ -43,17 +43,19 @@ def special_pythagorean(s):
                 k += 2
 
 
-# Check Input
-try:
+if __name__ == "__main__":
     limit = int(input("Enter the sum: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print result
-print("\nThe sum is: {}".format(limit))
-x = special_pythagorean(limit)
-y = x[0] * x[1] * x[2]
-print("The triplet is ({:.0f}, {:.0f}, {:.0f})".format(x[0], x[1], x[2]))
-print("The product is: {:.0f}".format(y))
+    start = time.time_ns()
+
+    print("\nThe sum is: {}".format(limit))
+    x = special_pythagorean(limit)
+    y = x[0] * x[1] * x[2]
+    print("The triplet is ({:.0f}, {:.0f}, {:.0f})".format(x[0], x[1], x[2]))
+    print("The product is: {:.0f}".format(y))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

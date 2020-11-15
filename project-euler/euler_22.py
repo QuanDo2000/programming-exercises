@@ -11,6 +11,9 @@ Link: https://projecteuler.net/problem=22
 """
 
 
+import time
+
+
 def read_file(filename):
     """Return the parsed data from input file."""
     with open('./data/{}.txt'.format(filename), 'r') as f:
@@ -29,12 +32,21 @@ def get_alpha_score(in_str):
     return ret_score
 
 
-names = read_file('p022_names')
-total_scores = 0
-for idx, name in enumerate(names):
-    score = get_alpha_score(name)
-    if name == 'COLIN':
-        print(score * (idx + 1))
-    total_scores += score * (idx + 1)
+if __name__ == "__main__":
+    start = time.time_ns()
 
-print('The total names scores is {}'.format(total_scores))
+    names = read_file('p022_names')
+    total_scores = 0
+    for idx, name in enumerate(names):
+        score = get_alpha_score(name)
+        # if name == 'COLIN':
+        #     print(score * (idx + 1))
+        total_scores += score * (idx + 1)
+
+    print('The total names scores is {}'.format(total_scores))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

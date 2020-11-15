@@ -10,7 +10,7 @@ Help:
 """
 
 
-import sys
+import time
 
 
 def check_palindrome(string):
@@ -39,15 +39,17 @@ def find_palindrome(digits):
     return largest
 
 
-# Check input error
-try:
+if __name__ == "__main__":
     digits = int(input("Enter number of digits: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print result
-print("\nAmount of digits: {}".format(digits))
-result = find_palindrome(digits)
-print("Largest Palindrome is: {}".format(result))
+    start = time.time_ns()
+
+    print("\nAmount of digits: {}".format(digits))
+    result = find_palindrome(digits)
+    print("Largest Palindrome is: {}".format(result))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))

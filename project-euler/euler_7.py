@@ -9,7 +9,7 @@ Link: https://projecteuler.net/problem=7
 """
 
 
-import sys
+import time
 
 
 def nth_prime(n):
@@ -30,14 +30,16 @@ def nth_prime(n):
     return prime_list[-1]
 
 
-# Check input error
-try:
+if __name__ == "__main__":
     index = int(input("Enter index: "))
-except ValueError:
-    # Handle input error
-    print("Invalid Input.\nExit...")
-    sys.exit()
 
-# Print result
-print("\nThe index is: {:,}".format(index))
-print("The prime number is: {:,}".format(nth_prime(index)))
+    start = time.time_ns()
+
+    print("\nThe index is: {:}".format(index))
+    print("The prime number is: {:}".format(nth_prime(index)))
+
+    time_diff = (time.time_ns() - start) / 1000000
+    if time_diff < 1e3:
+        print('Time taken: {:.4} ms'.format(time_diff))
+    else:
+        print('Time taken: {:.4} s'.format(time_diff / 1000))
