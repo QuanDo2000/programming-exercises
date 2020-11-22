@@ -26,7 +26,7 @@ def sum_divisors(num):
 
 
 def find_abundants(limit):
-    """Return a list of all abundant numbers below a limit."""
+    """Return a set of all abundant numbers below a limit."""
     ret_list = set()
     for num in range(1, limit + 1):
         sum_divs = sum_divisors(num)
