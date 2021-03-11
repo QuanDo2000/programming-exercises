@@ -1,10 +1,11 @@
-4 5
-Horatio 1 Irene
-Chris 2 Gina Horatio
-Alice 3 Dan Emily Frank
-Bob 2 Alice Chris
-Irene Bob
-Dan Frank
-Chris Emily
-Alice Chris
-Dan Irene
+4 6
+A 4 B C D E
+H 3 I J K
+C 2 F G
+D 1 H
+G C
+H A
+F G
+F H
+F K
+B K

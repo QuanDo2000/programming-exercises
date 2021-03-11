@@ -1,3 +1,24 @@
+def lca(tree, ri, rj, si, sj):
+    # Find closest common ancestor
+    ti, tj = ri, rj
+    pi, pj = si, sj
+    while ti < tj:
+        pj = tree[pj][2]
+        tj = tree[pj][0]
+    while tj < ti:
+        pi = tree[pi][2]
+        ti = tree[pi][0]
+    while pi != pj:
+        pi = tree[pi][2]
+        pj = tree[pj][2]
+        ti = tree[pi][0]
+        tj = tree[pj][0]
+
+    ri = ri - ti
+    rj = rj - tj
+    return ri, rj
+
+
 t, p = map(int, input().split())
 
 
@@ -32,22 +53,7 @@ for _ in range(p):
     # print(ri, tree[si][2], rj, tree[sj][2])
 
     # Find closest common ancestor
-    ti, tj = ri, rj
-    pi, pj = si, sj
-    while ti < tj:
-        pj = tree[pj][2]
-        tj = tree[pj][0]
-    while tj < ti:
-        pi = tree[pi][2]
-        ti = tree[pi][0]
-    while pi != pj:
-        pi = tree[pi][2]
-        pj = tree[pj][2]
-        ti = tree[pi][0]
-        tj = tree[pj][0]
-
-    ri = ri - ti
-    rj = rj - tj
+    ri, rj = lca(tree, ri, rj, si, sj)
 
     swap = False
     if ri > rj:
