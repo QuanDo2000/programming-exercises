@@ -36,29 +36,25 @@ def get_sum(pre, x, xx):
 
 def rec(x, y, z):
     global a, b, c, pre_a, pre_b, r, s, n, pt, dp
+    if DEBUG:
+        # print(x, y, z)
+        print(sum([sum(dp[i][j]) for i in range(r) for j in range(s)]))
     if z == n:
         dp[x][y][z] = 1
         return True
-    ret = False
+    if dp[x][y][z] == 1:
+        return False
+    dp[x][y][z] = 1
     for i in range(r):
         for j in range(s):
             rem = c[z] - get_sum(pre_a, x, i) - get_sum(pre_b, y, j)
-            if DEBUG:
-                print(x, y, z, i, j, rem, pt[rem])
             if pt[rem] == 1 and rem >= 0:
-                if dp[i][j][z + 1] == 1:
+                if rec(i, j, z + 1):
                     return True
-                elif dp[i][j][z + 1] == 0:
-                    return False
-                ret = rec(i, j, z + 1)
-            if ret:
-                dp[x][y][z] = 1
-                return True
-    dp[x][y][z] = 0
-    return ret
+    return False
 
 
-DEBUG = False
+DEBUG = True
 
 
 r, s, n = map(int, input().split())
@@ -66,6 +62,9 @@ r, s, n = map(int, input().split())
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
 c = list(map(int, input().split()))
+
+if DEBUG:
+    print(r, s, n)
 
 pt = [0] * (2000000 + 1)
 
@@ -88,19 +87,17 @@ for i in range(1, r):
 for i in range(1, s):
     pre_b[i] = pre_b[i - 1] + b[i]
 
-
-dp = [[[-1 for _ in range(n + 1)] for _ in range(s)] for _ in range(r)]
-
-res = rec(0, 0, 0)
-if res:
-    print('Yes')
-else:
-    print('No')
-
-
 if DEBUG:
     print(asum, bsum)
     print(a, b)
     print(pre_a, pre_b)
     print(gcd_ab, pair_ab)
     # print([i for i in range(len(pt)) if pt[i] == 1])
+
+dp = [[[0 for _ in range(n + 1)] for _ in range(s)] for _ in range(r)]
+
+res = rec(0, 0, 0)
+if res:
+    print('Yes')
+else:
+    print('No')
