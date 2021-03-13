@@ -1,3 +1,6 @@
+import time
+
+
 def gcd_ex(a, b):
     aa = (1, 0)
     bb = (0, 1)
@@ -37,8 +40,8 @@ def get_sum(pre, x, xx):
 def rec(x, y, z):
     global a, b, c, pre_a, pre_b, r, s, n, pt, dp
     if DEBUG:
-        # print(x, y, z)
-        print(sum([sum(dp[i][j]) for i in range(r) for j in range(s)]))
+        print(x, y, z)
+        # print(sum([sum(dp[i][j]) for i in range(r) for j in range(s)]))
     if z == n:
         dp[x][y][z] = 1
         return True
@@ -54,6 +57,26 @@ def rec(x, y, z):
     return False
 
 
+def not_rec():
+    global a, b, c, pre_a, pre_b, r, s, n, pt, dp
+    dp[0][0][0] = 1
+    for z in range(n):
+        for x in range(r):
+            for y in range(s):
+                if DEBUG:
+                    print(x, y, z)
+                if dp[x][y][z] == 1:
+                    for i in range(r):
+                        for j in range(s):
+                            rem = c[z] - get_sum(pre_a, x, i) - \
+                                get_sum(pre_b, y, j)
+                            if pt[rem] == 1 and rem >= 0:
+                                dp[i][j][z + 1] = 1
+                                if z + 1 == n:
+                                    return True
+    return False
+
+
 DEBUG = True
 
 
@@ -64,6 +87,7 @@ b = list(map(int, input().split()))
 c = list(map(int, input().split()))
 
 if DEBUG:
+    start = time.time()
     print(r, s, n)
 
 pt = [0] * (2000000 + 1)
@@ -96,8 +120,23 @@ if DEBUG:
 
 dp = [[[0 for _ in range(n + 1)] for _ in range(s)] for _ in range(r)]
 
-res = rec(0, 0, 0)
+# res = rec(0, 0, 0)
+
+res = not_rec()
+
+# res = False
+# for i in range(r):
+#     for j in range(s):
+#         if dp[i][j][n + 1] == 1:
+#             res = True
+#             break
+
 if res:
     print('Yes')
 else:
     print('No')
+
+
+if DEBUG:
+    end = time.time() - start
+    print('{}s'.format(end))
