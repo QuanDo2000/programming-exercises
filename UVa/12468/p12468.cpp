@@ -10,22 +10,26 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-int t, f, s, a, e, ans;
-
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    cin >> t;
-    while (t--)
+    int a, b, ans;
+
+    while (cin >> a >> b)
     {
-        cin >> f;
-        ans = 0;
-        while (f--)
+        if (a == -1 && b == -1)
         {
-            cin >> s >> a >> e;
-            ans += s * e;
+            return 0;
+        }
+        if (a < b)
+        {
+            ans = min(b - a, a - b + 100);
+        }
+        else
+        {
+            ans = min(a - b, b - a + 100);
         }
         cout << ans << "\n";
     }

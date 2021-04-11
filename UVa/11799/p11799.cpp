@@ -10,24 +10,27 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-int t, f, s, a, e, ans;
-
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    cin >> t;
-    while (t--)
+    int tc, n, c, mx, t = 1;
+
+    cin >> tc;
+    while (tc--)
     {
-        cin >> f;
-        ans = 0;
-        while (f--)
+        mx = 0;
+        cin >> n;
+        for (int i = 0; i < n; i++)
         {
-            cin >> s >> a >> e;
-            ans += s * e;
+            cin >> c;
+            if (c > mx)
+            {
+                mx = c;
+            }
         }
-        cout << ans << "\n";
+        cout << "Case " << t++ << ": " << mx << "\n";
     }
 
     return 0;
