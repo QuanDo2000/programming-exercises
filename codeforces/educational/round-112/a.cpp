@@ -17,11 +17,23 @@ const int MAX_N = 1e9 + 2;
 
 const bool DEBUG = 0;
 
-void solve() {}
+void solve() {
+  ll n;
+  cin >> n;
+
+  ll ans = max((ll)15, (n + 1) / 2 * 5);
+  cout << ans << "\n";
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    solve();
+  }
 
   return 0;
 }
