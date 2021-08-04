@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SOURCE="$( dirname "${BASH_SOURCE[0]}" )"
+
+if [ -z "$1" ]; then
+  echo "Error: No filename provided."
+  exit 1
+fi
+
+touch ./$1.cpp
+cat $SOURCE/template.cpp > ./$1.cpp
+touch ./$1.inp
+touch ./$1.sout

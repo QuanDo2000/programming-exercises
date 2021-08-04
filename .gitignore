@@ -1,4 +1,2 @@
-*.vscode
 *.code-workspace
 __pycache__
-bin
