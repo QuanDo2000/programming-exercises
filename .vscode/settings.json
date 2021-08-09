@@ -1,7 +1,7 @@
 {
   "code-runner.executorMap": {
-    "c": "cd $dir && gcc -o $fileNameWithoutExt -g $fileName && $dir$fileNameWithoutExt",
-    "cpp": "cd $dir && g++ -o $fileNameWithoutExt.exe -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector -g $fileName && ./$fileNameWithoutExt.exe < $fileNameWithoutExt.inp > $fileNameWithoutExt.out && diff $fileNameWithoutExt.out $fileNameWithoutExt.sout",
-    "python": "cd $dir && python -u $fileName < $fileNameWithoutExt.inp > $fileNameWithoutExt.out && diff $fileNameWithoutExt.out $fileNameWithoutExt.sout"
+    "c": "gcc -o $fileNameWithoutExt -g $fileName && $dir$fileNameWithoutExt",
+    "cpp": "g++ -o $fileNameWithoutExt.exe -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector -g $fileName && ./$fileNameWithoutExt.exe < $fileNameWithoutExt.inp > $fileNameWithoutExt.out && diff $fileNameWithoutExt.out $fileNameWithoutExt.sout",
+    "python": "python -u $fileName < $fileNameWithoutExt.inp > $fileNameWithoutExt.out && diff $fileNameWithoutExt.out $fileNameWithoutExt.sout"
   }
 }
