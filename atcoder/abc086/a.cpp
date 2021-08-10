@@ -5,7 +5,6 @@ using namespace std;
 // Shorthand for commonly used types
 using ll = long long;
 using ld = long double;
-using str = string;
 using ii = pair<int, int>;
 using vi = vector<int>;
 using vii = vector<ii>;
@@ -22,11 +21,23 @@ const int MAX_N = 1e9 + 2;
 
 const bool DEBUG = 0;
 
-void solve() {}
+void solve() {
+  int a, b;
+  cin >> a >> b;
+
+  int ans = a * b;
+  if (ans % 2 == 0) {
+    cout << "Even\n";
+  } else {
+    cout << "Odd\n";
+  }
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  solve();
 
   return 0;
 }

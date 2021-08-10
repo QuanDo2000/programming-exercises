@@ -22,11 +22,28 @@ const int MAX_N = 1e9 + 2;
 
 const bool DEBUG = 0;
 
-void solve() {}
+void solve() {
+  int a, b, c, x;
+  cin >> a >> b >> c >> x;
+
+  vi amount = {a, b, c};
+
+  int ans = 0;
+  for (int i = 0; i <= a; i++) {
+    for (int j = 0; j <= b; j++) {
+      for (int k = 0; k <= c; k++) {
+        if (500 * i + 100 * j + 50 * k == x) ans++;
+      }
+    }
+  }
+  cout << ans << "\n";
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  solve();
 
   return 0;
 }

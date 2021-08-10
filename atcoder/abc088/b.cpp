@@ -22,11 +22,31 @@ const int MAX_N = 1e9 + 2;
 
 const bool DEBUG = 0;
 
-void solve() {}
+void solve() {
+  int n;
+  cin >> n;
+
+  vi a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+  sort(a.begin(), a.end(), greater<int>());
+
+  int ans = 0;
+  for (int i = 0; i < n; i++) {
+    if (i % 2 == 0)
+      ans += a[i];
+    else
+      ans -= a[i];
+  }
+  cout << ans << "\n";
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  solve();
 
   return 0;
 }

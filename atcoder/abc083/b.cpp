@@ -20,13 +20,36 @@ const ld EPS = 1e-9;
 
 const int MAX_N = 1e9 + 2;
 
-const bool DEBUG = 0;
+const bool DEBUG = 1;
 
-void solve() {}
+int sumDigits(int x) {
+  int ans = 0;
+  while (x) {
+    ans += x % 10;
+    x /= 10;
+  }
+  return ans;
+}
+
+void solve() {
+  int n, a, b;
+  cin >> n >> a >> b;
+
+  int ans = 0;
+  for (int i = 1; i <= n; i++) {
+    int sum = sumDigits(i);
+    if (sum <= b && sum >= a) {
+      ans += i;
+    }
+  }
+  cout << ans << "\n";
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  solve();
 
   return 0;
 }

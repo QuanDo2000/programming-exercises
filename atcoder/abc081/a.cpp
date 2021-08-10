@@ -22,11 +22,24 @@ const int MAX_N = 1e9 + 2;
 
 const bool DEBUG = 0;
 
-void solve() {}
+void solve() {
+  str str1;
+  cin >> str1;
+
+  int ans = 0;
+  for (int i = 0; i < str1.size(); i++) {
+    if (str1[i] == '1') {
+      ans++;
+    }
+  }
+  cout << ans << "\n";
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  solve();
 
   return 0;
 }

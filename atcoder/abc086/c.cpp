@@ -22,11 +22,34 @@ const int MAX_N = 1e9 + 2;
 
 const bool DEBUG = 0;
 
-void solve() {}
+void solve() {
+  int n;
+  cin >> n;
+
+  ii curr = {0, 0};
+  bool ans = true;
+
+  int prevt = 0;
+  for (int i = 0; i < n; i++) {
+    int t, x, y;
+    cin >> t >> x >> y;
+    int tdiff = t - prevt;
+    int cost = abs(x - curr.first) + abs(y - curr.second);
+    if (cost <= tdiff && cost % 2 == tdiff % 2) {
+      curr = {x, y};
+    } else {
+      ans = false;
+    }
+    prevt = t;
+  }
+  cout << (ans ? "Yes" : "No") << "\n";
+}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
+
+  solve();
 
   return 0;
 }
