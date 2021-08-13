@@ -15,3 +15,7 @@ else
 fi
 touch ./$1.inp
 touch ./$1.sout
+
+code ./$1.inp
+code ./$1.sout
+code ./$1.cpp
