@@ -23,6 +23,21 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n, x;
+  cin >> n >> x;
+  str s;
+  cin >> s;
+
+  for (int i = 0; i < n; i++) {
+    if (s[i] == 'o')
+      x++;
+    else
+      x--;
+    if (x < 0) x = 0;
+  }
+
+  cout << x << "\n";
+
   return;
 }
 

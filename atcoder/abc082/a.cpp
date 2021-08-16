@@ -23,16 +23,16 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
-  return;
+  int a, b;
+  cin >> a >> b;
+  ld ans = (ld)(a + b) / 2;
+  cout << ceil(ans) << "\n";
 }
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  // int tc;
-  // cin >> tc;
-  // for (int i = 0; i < tc; i++)
   solve();
 
   return 0;

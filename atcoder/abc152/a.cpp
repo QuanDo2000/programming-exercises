@@ -23,6 +23,9 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n, m;
+  cin >> n >> m;
+  cout << (m < n ? "No" : "Yes") << "\n";
   return;
 }
 

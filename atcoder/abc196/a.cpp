@@ -23,6 +23,16 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int a, b, c, d;
+  cin >> a >> b >> c >> d;
+
+  int mx = a - c;
+  if (a - d > mx) mx = a - d;
+  if (b - c > mx) mx = b - c;
+  if (b - d > mx) mx = b - d;
+
+  cout << mx << "\n";
+
   return;
 }
 

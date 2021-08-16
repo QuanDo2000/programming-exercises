@@ -23,6 +23,19 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  ll n, a, b;
+  cin >> n >> a >> b;
+
+  ll factor = n / (a + b);
+  ll rem = n % (a + b);
+  ll ans = factor * a;
+  if (rem >= a)
+    ans += a;
+  else
+    ans += rem;
+
+  cout << ans << "\n";
+
   return;
 }
 

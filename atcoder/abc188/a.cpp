@@ -23,6 +23,17 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int x, y;
+  cin >> x >> y;
+
+  if (y > x) swap(x, y);
+
+  if (y + 3 > x)
+    cout << "Yes";
+  else
+    cout << "No";
+  cout << "\n";
+
   return;
 }
 

@@ -23,6 +23,20 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n;
+  cin >> n;
+
+  vi a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+
+  int ans = a[0];
+  for (int i = 1; i < n; i++) {
+    ans = ans & a[i];
+  }
+  cout << ans << "\n";
+
   return;
 }
 
@@ -30,10 +44,10 @@ int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  // int tc;
-  // cin >> tc;
-  // for (int i = 0; i < tc; i++)
-  solve();
+  int tc;
+  cin >> tc;
+  for (int i = 0; i < tc; i++)
+    solve();
 
   return 0;
 }

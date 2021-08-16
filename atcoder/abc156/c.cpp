@@ -23,6 +23,26 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n;
+  cin >> n;
+
+  vi x(n);
+  for (int i = 0; i < n; i++) {
+    cin >> x[i];
+  }
+
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += x[i];
+  }
+  ld mid = round((ld)sum / n);
+
+  int ans = 0;
+  for (int i = 0; i < n; i++) {
+    ans += (x[i] - mid) * (x[i] - mid);
+  }
+  cout << ans << "\n";
+
   return;
 }
 

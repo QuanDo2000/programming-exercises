@@ -23,6 +23,25 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  ll h;
+  int n;
+  cin >> h >> n;
+
+  vi a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+
+  ll sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += a[i];
+  }
+
+  if (sum >= h)
+    cout << "Yes";
+  else
+    cout << "No";
+  cout << "\n";
   return;
 }
 

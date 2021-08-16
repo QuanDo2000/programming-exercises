@@ -23,6 +23,37 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n;
+  cin >> n;
+
+  bool zero = 0;
+  vl a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+    if (a[i] == 0) zero = 1;
+  }
+
+  if (zero) {
+    cout << 0 << "\n";
+    return;
+  }
+
+  zero = 0;
+  ll ans = 1;
+  for (int i = 0; i < n; i++) {
+    if (a[i] <= (ld)1e18 / ans)
+      ans *= a[i];
+    else {
+      zero = 1;
+      break;
+    }
+  }
+  if (zero)
+    cout << -1;
+  else
+    cout << ans;
+  cout << "\n";
+
   return;
 }
 

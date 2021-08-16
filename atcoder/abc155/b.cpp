@@ -23,6 +23,18 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n;
+  cin >> n;
+
+  bool ans = 1;
+  for (int i = 0; i < n; i++) {
+    int x;
+    cin >> x;
+    if (x % 2 == 0 && x % 3 != 0 && x % 5 != 0) ans = 0;
+  }
+
+  cout << (ans ? "APPROVED" : "DENIED") << "\n";
+
   return;
 }
 

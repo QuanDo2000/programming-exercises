@@ -23,6 +23,13 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int l;
+  cin >> l;
+
+  ld side = (ld)l / 3;
+  ld ans = side * side * side;
+  cout << fixed << setprecision(6) << ans << "\n";
+
   return;
 }
 

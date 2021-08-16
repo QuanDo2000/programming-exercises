@@ -23,6 +23,11 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  int n, a;
+  cin >> n >> a;
+
+  cout << n * n - a << "\n";
+
   return;
 }
 

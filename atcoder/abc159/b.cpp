@@ -23,6 +23,28 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
+  str s;
+  cin >> s;
+
+  int n = s.size();
+  int lo = (n - 1) / 2, hi = (n + 3) / 2;
+
+  for (int i = 0; i < lo; i++) {
+    if (s[i] != s[hi + i - 1]) {
+      cout << "No\n";
+      return;
+    }
+    if (s[i] != s[lo - i - 1]) {
+      cout << "No\n";
+      return;
+    }
+    if (s[hi + i - 1] != s[n - i - 1]) {
+      cout << "No\n";
+      return;
+    }
+  }
+  cout << "Yes\n";
+
   return;
 }
 

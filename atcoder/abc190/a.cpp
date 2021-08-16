@@ -23,16 +23,21 @@ const int MAX_N = 1e9 + 2;
 const bool DEBUG = 0;
 
 void solve() {
-  return;
+  int a, b, c;
+  cin >> a >> b >> c;
+  if (c == 1) swap(a, b);
+  if (a > b) {
+    cout << (c == 0 ? "Takahashi" : "Aoki");
+  } else
+    cout << (c == 0 ? "Aoki" : "Takahashi");
+
+  cout << "\n";
 }
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  // int tc;
-  // cin >> tc;
-  // for (int i = 0; i < tc; i++)
   solve();
 
   return 0;
