@@ -7,23 +7,5 @@
     // Powershell version
     "cpp": "g++ $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fno-sanitize-recover -fstack-protector && Get-Content $fileNameWithoutExt.inp | ./$fileNameWithoutExt.exe > $fileNameWithoutExt.out && Compare-Object (Get-Content $fileNameWithoutExt.out) (Get-Content $fileNameWithoutExt.sout)",
     "python": "Get-Content $fileNameWithoutExt.inp | python -u $fileName > $fileNameWithoutExt.out && Compare-Object (Get-Content $fileNameWithoutExt.out) (Get-Content $fileNameWithoutExt.sout)"
-  },
-  "files.associations": {
-    "iostream": "cpp",
-    "array": "cpp",
-    "deque": "cpp",
-    "forward_list": "cpp",
-    "list": "cpp",
-    "string": "cpp",
-    "unordered_map": "cpp",
-    "unordered_set": "cpp",
-    "vector": "cpp",
-    "string_view": "cpp",
-    "rope": "cpp",
-    "slist": "cpp",
-    "initializer_list": "cpp",
-    "regex": "cpp",
-    "valarray": "cpp",
-    "*.tcc": "cpp"
   }
 }
